@@ -107,7 +107,7 @@ namespace Challenge2new
 
 
         [FunctionName("GetRatingbyUserId")]
-        public static HttpResponseMessage Run2([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "userrating/{userId}")]
+        public static HttpResponseMessage Run2([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "userrating/{userId}")]
                 HttpRequest req,
              [CosmosDB(databaseName: "createratingoutDatabase",
                 collectionName: "MyCollection",
