@@ -18,7 +18,8 @@ namespace Challenge2new
     public static class Function1
     {
         [FunctionName("CreateRating")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log, IAsyncCollector<object> outputDocument)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log,
+             [CosmosDB(databaseName: "hacker1satheesh", collectionName: "Items", ConnectionStringSetting = "CosmosConn")]IAsyncCollector<object> outputDocument)
 
         {
             log.Info("CreateRating function triggerred...");
@@ -145,6 +146,18 @@ namespace Challenge2new
         public string locationName { get; set; }
         public string rating { get; set; }
         public string userNotes { get; set; }
+    }
+
+    public class OrderHeadDetails
+    {
+        public string ponumber { get; set; }
+        public string datetime { get; set; }
+        public string locationid { get; set; }
+        public string locationname { get; set; }
+        public string locationaddress { get; set; }
+        public string locationpostcode { get; set; }
+        public string totalcost { get; set; }
+        public string totaltax { get; set; }
     }
 
 }
