@@ -110,8 +110,8 @@ namespace Challenge2new
         [FunctionName("GetRatingbyUserId")]
         public static HttpResponseMessage Run2([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "userrating/{userId}")]
                 HttpRequest req,
-             [CosmosDB(databaseName: "createratingoutDatabase",
-                collectionName: "MyCollection",
+             [CosmosDB(databaseName: "hacker1satheesh",
+                collectionName: "Items",
                 ConnectionStringSetting = "CosmosConn",SqlQuery  = "SELECT * FROM c where c.userId={userId}")]
                 System.Collections.Generic.IEnumerable<Ratings> documents,
            TraceWriter log)
